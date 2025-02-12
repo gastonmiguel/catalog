@@ -2,16 +2,12 @@ import { apiFetch } from './apiFetch';
 
 export async function getData(
     companie: string,
-    params : {} = {}
+    query: string = ''
 ) {
 
-    const queryParams = new URLSearchParams(params);
-    const url = `${companie}?${queryParams.toString()}`;
-
-    console.log(url);
+    const url = `${companie}?${query}`;
 
     const data = await apiFetch(url);
     console.log(data);
     return data;
-
 }
